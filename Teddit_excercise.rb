@@ -1,5 +1,3 @@
-require 'json'
-require 'rest-client'
 
 def show_message(message)
   puts message
@@ -35,9 +33,8 @@ end
 
 
 def get_from_reddit
-
 reddit_posts=RestClient.get("http://reddit.com/top.json")
-posts=JSON.load(reddit_posts)
+posts=JSON.load(reddit_posts).parse
 end
 
 puts get_from_reddit

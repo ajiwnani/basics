@@ -51,7 +51,6 @@ puts
 secret_number = rand(1..10)
 guesses_left = 3
 
-
 def try_again(guesses_left, next_guess)
   puts "Sorry, that's not it..."
   puts "You have #{guesses_left} #{guesses_left > 1 ? 'guesses' : 'guess'} left." if guesses_left > 1

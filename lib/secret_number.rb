@@ -3,6 +3,7 @@
 #   This way the secret number is also a secret to you.
 
 class SecretNumber
+	attr_accessor :secret_number
 	def initialize 
 		@secret_number= secret_number
 		secret_number=rand(1..10) 	

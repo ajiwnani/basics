@@ -12,37 +12,43 @@ require_relative 'lib/secret_number.rb'
 require_relative 'lib/player.rb'
 
 class Game 
-puts "Okay #{name}, so here are the rules:"
-puts " You must guess a number between one and ten"
-puts " You will only have three tries to get it right"
-guesses=3
-guesses_left=guesses-1 
-player=Player.New()
-secret_number=SecretNumber.New()
-end
+
+     def rules
+      puts "Okay #{name}, so here are the rules:"
+      puts " You must guess a number between one and ten"
+      puts " You will only have three tries to get it right"
+    end
 
 
-def try_again(guesses_left, next_guess)
-  puts "Sorry, that's not it..."
-  puts "You have #{guesses_left} #{guesses_left > 1 ? 'guesses' : 'guess'} left." if guesses_left > 1
-  puts "Guess #{next_guess}!" if guesses_left > 0
-  puts
-end
+    def initialize
+    @guesses=3
+    #guesses_left=guesses-1 
+    @player=Player.New()
+    @secret_number=SecretNumber.New()
+    end
 
-while guesses_left > 0
-  puts "What's your guess?"
-  guess = gets.strip.to_i
 
-  if guess == secret_number
-    puts "YOU WON!"
-    exit
-  elsif guess > secret_number
-    guesses_left -= 1
-    try_again(guesses_left, "lower")
-  elsif guess < secret_number
-    guesses_left -= 1
-    try_again(guesses_left, "higher")
-  end
-end
+    def try_again(guesses_left, next_guess)
+      puts "Sorry, that's not it..."
+      puts "You have #{guesses_left} #{guesses_left > 1 ? 'guesses' : 'guess'} left." if guesses_left > 1
+      puts "Guess #{next_guess}!" if guesses_left > 0
+      puts
+    end
 
-puts "Game over. You didn't correctly guess the number. It was #{secret_number}, duh."
+    while guess > 0
+      puts "What's your guess?"
+      player_guess = gets.strip.to_i
+
+      if player_guess == secret_number
+        puts "YOU WON!"
+        exit
+      elsif player_guess > secret_number
+        guesses_left -= 1
+        try_again(guesses, "lower")
+      elsif guess < secret_number
+        guesses_left -= 1
+        try_again(guesses_left, "higher")
+      end
+    end
+
+    puts "Game over. You didn't correctly guess the number. It was #{secret_number}, duh."

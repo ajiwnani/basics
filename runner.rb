@@ -11,8 +11,6 @@
 # - Create a new Game instance, and pass it the Player instance as an argument
 # - Tell the game to start
 
-
-
 require_relative 'lib/secret_number.rb'
 require_relative 'lib/player.rb'
 require_relative 'lib/game.rb'
